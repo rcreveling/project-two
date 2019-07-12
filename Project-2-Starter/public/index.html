@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<head>
+  <title>Testing Semantic UI</title>
+  <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+  <script src="semantic/dist/semantic.min.js"></script>
+</head>
+
+<body>
+  <div class="ui visible left vertical menu sidebar">
+    <a class="item">
+      Home
+    </a>
+    <a class="item">
+      Voting
+    </a>
+    <a class="item">
+      Calendar
+    </a>
+    <a class="item">
+      Your account information
+    </a>
+  </div>
+  <div class="pusher">
+    <!-- Site content !-->
+  </div>
+  <h1 class="ui center aligned header">Testing Semantic UI</h1>
+  <div class="ui raised very padded text container segment">
+    <div class="ui grid">
+      <div class="two wide column">
+      <button class="ui icon left floated circular blue large button"> 
+        <i class="info circle large icon relax-modal"></i>
+      </button>
+      </div>
+      <div class="ten wide column">
+    <button class="fluid massive teal ui button">
+      Relaxing
+    </button>
+  </div>
+  </div>
+    <br>
+    <div class="ui grid">
+        <div class="two wide column">
+        <button class="ui icon left floated circular blue large button"> 
+          <i class="info circle large icon relax-modal"></i>
+        </button>
+        </div>
+        <div class="ten wide column">
+    <button class="fluid massive red ui button">
+      Active
+    </button>
+    </div>
+    </div>
+    <br>
+    <div class="ui grid">
+        <div class="two wide column">
+        <button class="ui icon left floated circular blue large button"> 
+          <i class="info circle large icon relax-modal"></i>
+        </button>
+        </div>
+        <div class="ten wide column">
+    <button class="fluid massive blue ui button">
+      Mental
+    </button>
+    </div>
+    </div>
+
+  </div>
+
+  <div class="ui modal">
+      <i class="close icon"></i>
+      <div class="header">
+        Activity
+      </div>
+      <div class="image content">
+        <div class="ui medium image">
+          <img src="/images/avatar/large/chris.jpg">
+        </div>
+        <div class="description">
+          <div class="ui header">We've auto-chosen a profile image for you.</div>
+          <p>We've grabbed the following image from the <a href="https://www.gravatar.com" target="_blank">gravatar</a> image associated with your registered e-mail address.</p>
+          <p>Is it okay to use this photo?</p>
+        </div>
+      </div>
+      <div class="actions">
+        <div class="ui black deny button">
+          Nope
+        </div>
+        <div class="ui positive right labeled icon button">
+          Yep, that's me
+          <i class="checkmark icon"></i>
+        </div>
+      </div>
+    </div>
+
+</body>
+<script>
+$(document).ready(function(){
+  $('.relax-modal').click(function(){
+    $('.ui.modal')
+    .modal('show');    
+  });
+  });
+</script>
+
+</html>

@@ -1,7 +1,7 @@
 {
   "development": {
-    "username": "localmotivation",
-    "password": "C_Je5GAUh-fDq_aw",
+    "username": "root",
+    "password": "8FroCircu$",
     "database": "localmotion",
     "host": "localhost",
     "dialect": "mysql"
