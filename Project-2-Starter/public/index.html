@@ -44,7 +44,7 @@
     <div class="ui grid">
       <div class="two wide column">
         <button class="ui icon left floated circular blue large button">
-          <i class="info circle large icon relax-modal"></i>
+          <i class="info circle large icon active-modal"></i>
         </button>
       </div>
       <div class="fourteen wide column">
@@ -57,7 +57,7 @@
     <div class="ui grid">
       <div class="two wide column">
         <button class="ui icon left floated circular blue large button">
-          <i class="info circle large icon relax-modal"></i>
+          <i class="info circle large icon mental-modal"></i>
         </button>
       </div>
       <div class="fourteen wide column">
@@ -75,8 +75,8 @@
       Active Activity
     </div>
     <div class="image content">
-      <div class="ui medium image">
-        <img src="img/A-red.png">
+      <div class="ui medium image letter-image">
+        
       </div>
       <div class="description">
         <div class="ui header">Swimming at the YMCA</div>
@@ -99,7 +99,19 @@
 </body>
 <script>
   $(document).ready(function () {
+    
     $('.relax-modal').click(function () {
+      $('.letter-image').html("<img src='img/R-teal.png'>");
+      $('.ui.modal')
+        .modal('show');
+    });
+    $('.active-modal').click(function () {
+      $('.letter-image').html("<img src='img/A-red.png'>");
+      $('.ui.modal')
+        .modal('show');
+    });
+    $('.mental-modal').click(function () {
+      $('.letter-image').html("<img src='img/M-blue.png'>");
       $('.ui.modal')
         .modal('show');
     });
