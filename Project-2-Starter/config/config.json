@@ -1,8 +1,8 @@
 {
   "development": {
-    "username": "root",
-    "password": null,
-    "database": "exampledb",
+    "username": "localmotivation",
+    "password": "C_Je5GAUh-fDq_aw",
+    "database": "localmotion",
     "host": "localhost",
     "dialect": "mysql"
   },
