@@ -3,12 +3,13 @@ module.exports = function(sequelize, DataTypes) {
     name: DataTypes.STRING,
     address: DataTypes.STRING,
     phone: DataTypes.STRING,
-    age: DataTypes.INTEGER
+    dob: DataTypes.DATEONLY,
+    isAdmin: DataTypes.BOOLEAN
   });
 
   Client.associate = function(models) {
-    Client.hasOne(models.Reservation, {
-      onDelete: "set null"
+    Client.hasMany(models.Reservation, {
+      onDelete: "cascade"
     });
   };
 

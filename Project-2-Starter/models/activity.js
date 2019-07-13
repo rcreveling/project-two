@@ -8,7 +8,7 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   Activity.associate = function(models) {
-    Activity.hasMany(models.Reservation, {
+    Activity.belongsTo(models.Event, {
       onDelete: "cascade"
     });
   };
