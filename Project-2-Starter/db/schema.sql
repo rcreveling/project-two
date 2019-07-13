@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS localmotion;
+CREATE DATABASE localmotion;

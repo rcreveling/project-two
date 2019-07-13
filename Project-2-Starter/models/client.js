@@ -7,10 +7,8 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   Client.associate = function(models) {
-    Client.belongsTo(models.Activity, {
-      foreignKey: {
-        allowNull: false
-      }
+    Client.hasOne(models.Reservation, {
+      onDelete: "set null"
     });
   };
 
