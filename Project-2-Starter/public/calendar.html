@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Testing Semantic UI</title>
+    <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="semantic/dist/semantic.min.js"></script>
+    <script src="https://apis.google.com/js/api.js"></script>
+</head>
+
+<body>
+    <iframe
+        src="https://calendar.google.com/calendar/embed?src=68ntk42um2ejpuktcbs2g0upgo%40group.calendar.google.com&ctz=America%2FNew_York"
+        style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+</body>
+<script>
+    function start() {
+        // 2. Initialize the JavaScript client library.
+        gapi.client.init({
+            'apiKey': 'AIzaSyC29ZhKQIq_NxNpGz_2mmm8NT67S6uS7bw',
+            // Your API key will be automatically added to the Discovery Document URLs.
+            'discoveryDocs': ['https://people.googleapis.com/$discovery/rest'],
+            // clientId and scope are optional if auth is not required.
+            'clientId': 'YOUR_WEB_CLIENT_ID.apps.googleusercontent.com',
+            'scope': 'profile',
+        }).then(function () {
+            // 3. Initialize and make the API request.
+            return gapi.client.people.people.get({
+                'resourceName': 'people/me',
+                'requestMask.includeField': 'person.names'
+            });
+        }).then(function (response) {
+            console.log(response.result);
+        }, function (reason) {
+            console.log('Error: ' + reason.result.error.message);
+        });
+    };
+    // 1. Load the JavaScript client library.
+    gapi.load('client', start);
+</script>
+
+</html>
