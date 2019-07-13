@@ -8,8 +8,8 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   Activity.associate = function(models) {
-    Activity.hasMany(models.Client, {
-      onDelete: "set null"
+    Activity.hasMany(models.Reservation, {
+      onDelete: "cascade"
     });
   };
 
