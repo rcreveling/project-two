@@ -99,33 +99,34 @@
 </head>
 
 <body>
+    <!--NAVBAR-->
     <div class="ui fixed inverted menu">
         <div class="ui container">
-            <a href="#" class="header item" onclick=toggle()>
+            <a href="#" onclick=toggle(); class="header item">
                 <img class="logo image" src="assets/images/logo.jpg" id="logo">
                 Project Name
             </a>
-            <a href="#" class="item">Home</a>
-            <div class="ui simple dropdown item">
-                Dropdown <i class="dropdown icon"></i>
-                <div class="menu">
-                    <a class="item" href="#">Link Item</a>
-                    <a class="item" href="#">Link Item</a>
-                    <div class="divider"></div>
-                    <div class="header">Header Item</div>
-                    <div class="item">
-                        <i class="dropdown icon"></i>
-                        Sub Menu
-                        <div class="menu">
-                            <a class="item" href="#">Link Item</a>
-                            <a class="item" href="#">Link Item</a>
-                        </div>
-                    </div>
-                    <a class="item" href="#">Link Item</a>
-                </div>
-            </div>
+            <a href="index.html" class="item">Home</a>
         </div>
     </div>
+    <!--/NAVBAR-->
+
+    <!--SIDEBAR-->
+    <div class="ui left demo vertical inverted sidebar labeled icon menu">
+        <a class="item" href="index.html">
+            <i class="home icon"></i>
+            Home
+        </a>
+        <a class="item" href="topics.html">
+            <i class=" block layout icon"></i>
+            Topics
+        </a>
+        <a class="item">
+            <i class="smile icon"></i>
+            -------
+        </a>
+    </div>
+    <!--/SIDEBAR-->
     <div class="ui middle aligned center aligned grid" id="formGrid">
         <div class="column">
             <h2 class="ui black image header">
@@ -133,7 +134,7 @@
                 <br>
                 <br>
                 <div class="content">
-                    User Login
+                    User Registration
                 </div>
             </h2>
             <form class="ui large form segment" id="form">

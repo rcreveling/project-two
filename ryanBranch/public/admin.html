@@ -13,6 +13,21 @@
             $('.ui.labeled.icon.sidebar').sidebar('toggle');
         }
     </script>
+    <style>
+        .thisPage {
+            margin: 0 auto !important;
+            max-width: 60vw !important;
+        }
+
+        .wide {
+            padding: 0 10px 0 10px !important;
+            text-align: center;
+        }
+
+        .larger {
+            font-size: 3em !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -39,12 +54,38 @@
             Topics
         </a>
         <a class="item">
-            <i class="smile icon"></i>
-            -------
+            <i class="add icon"></i>
+            New Event
         </a>
     </div>
     <!--/SIDEBAR-->
 
+    <div class="ui container">
+        <div class="ui horizontally divided grid" id="mainPage">
+            <div class="four column row thisPage">
+                <div class="column wide">
+                    <h2>Calendar</h2>
+                    <br>
+                    <i class="calendar icon larger"></i>
+                </div>
+                <div class="column wide">
+                    <h2>Manage Users</h2>
+                    <br>
+                    <i class="address book icon larger"></i>
+                </div>
+                <div class="column wide">
+                    <h2>Manage Events</h2>
+                    <br>
+                    <i class="check icon larger"></i>
+                </div>
+                <div class="column wide">
+                    <h2>Current Registration</h2>
+                    <br>
+                    <i class="universal access icon larger"></i>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 

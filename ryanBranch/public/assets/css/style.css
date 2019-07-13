@@ -4,6 +4,7 @@ body {
 
 body>.grid {
     height: 100%;
+    width: 100%
 }
 
 .image {
@@ -16,6 +17,11 @@ body>.grid {
     box-shadow: 1px 1px 1px black;
     margin-right: 2px;
 
+}
+
+#mainPage {
+    margin: 10vh auto !important;
+    width: 100%
 }
 
 .column {

@@ -13,51 +13,137 @@
             $('.ui.labeled.icon.sidebar').sidebar('toggle');
         }
     </script>
-
+    <style>
+        .logoA {
+            height: 40px;
+            width: auto
+        }
+    </style>
 </head>
 
 <body>
+    <!--NAVBAR-->
     <div class="ui fixed inverted menu">
-        <div class="ui container" id="topContainer">
-            <a href="#" class="header item" onclick=toggle()>
+        <div class="ui container">
+            <a href="#" onclick=toggle(); class="header item">
                 <img class="logo image" src="assets/images/logo.jpg" id="logo">
                 Project Name
             </a>
-            <a href="#" class="item">Home</a>
+            <a href="index.html" class="item">Home</a>
         </div>
     </div>
+    <!--/NAVBAR-->
 
+    <!--SIDEBAR-->
     <div class="ui left demo vertical inverted sidebar labeled icon menu">
-        <a class="item">
-            <i class="home icon" href=""></i>
+        <a class="item" href="index.html">
+            <i class="home icon"></i>
             Home
         </a>
-        <a class="item">
-            <i class="block layout icon"></i>
+        <a class="item" href="topics.html">
+            <i class=" block layout icon"></i>
             Topics
         </a>
         <a class="item">
             <i class="smile icon"></i>
-            Friends
+            -------
         </a>
     </div>
+    <!--/SIDEBAR-->
     <br>
     <br>
-    <h1 class="ui orange center aligned header">Local Motive TM</h1>
+    <h1 class="ui orange center aligned header">Local Motion TM</h1>
 
     <div class="ui raised very padded text container segment">
-        <button class="fluid massive teal ui button">
-            Relaxing
-        </button>
+        <div class="ui grid">
+            <div class="two wide column">
+                <button class="ui icon left floated circular blue large button">
+                    <i><img src="/assets/images/letterR.png" class="logoA active-modal"></i>
+                </button>
+            </div>
+            <div class="fourteen wide column">
+                <button class="fluid massive teal ui button">
+                    Relaxing
+                </button>
+            </div>
+        </div>
         <br>
-        <button class="fluid massive red ui button">
-            Active
-        </button>
+        <div class="ui grid">
+            <div class="two wide column">
+                <button class="ui icon left floated circular blue large button">
+                    <i><img src="assets/images/letterA.png" class="logoA active-modal"></i>
+                </button>
+            </div>
+            <div class="fourteen wide column">
+                <button class="fluid massive red ui button">
+                    Active
+                </button>
+            </div>
+        </div>
         <br>
-        <button class="fluid massive blue ui button">
-            Intellectual
-        </button>
+        <div class="ui grid">
+            <div class="two wide column">
+                <button class="ui icon left floated circular blue large button">
+                    <i> <i><img src="assets/images/letterM.png" class="logoA active-modal"></i></i>
+                </button>
+            </div>
+            <div class="fourteen wide column">
+                <button class="fluid massive blue ui button">
+                    Mental
+                </button>
+            </div>
+        </div>
+
     </div>
+
+    <div class="ui modal">
+        <i class="close icon"></i>
+        <div class="header">
+            Active Activity
+        </div>
+        <div class="image content">
+            <div class="ui medium image letter-image">
+
+            </div>
+            <div class="description">
+                <div class="ui header">Swimming at the YMCA</div>
+                <p>Enjoy a morning of swimming at the YMCA. Optional water aerobics class at 10am.</p>
+                <p>Bus pick-up at 9:00am.</p>
+                <p>Bus drop-off at 12:00pm.</p>
+            </div>
+        </div>
+        <div class="actions">
+            <div class="ui black deny button">
+                Cancel
+            </div>
+            <div class="ui positive right labeled icon button">
+                Sign me up!
+                <i class="checkmark icon"></i>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+    $(document).ready(function () {
+
+        $('.relax-modal').click(function () {
+            $('.letter-image').html("<img src='/assets/images/letterR.png'>");
+            $('.ui.modal')
+                .modal('show');
+        });
+        $('.active-modal').click(function () {
+            $('.letter-image').html("<img src='/assets/images/letterA.png'>");
+            $('.ui.modal')
+                .modal('show');
+        });
+        $('.mental-modal').click(function () {
+            $('.letter-image').html("<img src='/assets/images/letterM.png'>");
+            $('.ui.modal')
+                .modal('show');
+        });
+    });
+</script>
 
 </body>
 

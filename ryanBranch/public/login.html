@@ -51,61 +51,87 @@
     </script>
     <style>
         .ui.middle.aligned.center.aligned.grid {
-            position: fixed !important;
-            top: 0%;
-            right: 35%;
+            top: 20vh;
+        }
+
+        #mainPage {
+            padding: 10vh;
         }
     </style>
 </head>
 
 <body>
+    <!--NAVBAR-->
     <div class="ui fixed inverted menu">
         <div class="ui container">
             <a href="#" class="header item">
-                <img class="logo image" src="assets/images/logo.jpg" id="logo">
+                <img class="logo image" onclick=toggle(); src="assets/images/logo.jpg" id="logo">
                 Project Name
             </a>
-            <a href="#" class="item">Home</a>
-
+            <a href="index.html" class="item">Home</a>
         </div>
     </div>
+    <!--/NAVBAR-->
 
-    <div class="ui middle aligned center aligned grid">
-        <div class="column">
-            <h2 class="ui black image header">
-                <img src="assets/images/logo.jpg" class="image" id="logo">
-                <br>
-                <br>
-                <div class="content">
-                    User Login
-                </div>
-            </h2>
-            <form class="ui large form">
-                <div class="ui stacked segment">
-                    <div class="field">
-                        <div class="ui left icon input">
-                            <i class="phone icon"></i>
-                            <input type="text" name="phone" placeholder="000-000-0000">
-                        </div>
+    <!--SIDEBAR-->
+    <div class="ui left demo vertical inverted sidebar labeled icon menu">
+        <a class="item" href="index.html">
+            <i class="home icon"></i>
+            Home
+        </a>
+        <a class="item" href="topics.html">
+            <i class=" block layout icon"></i>
+            Topics
+        </a>
+        <a class="item">
+            <i class="smile icon"></i>
+            -------
+        </a>
+    </div>
+    <!--/SIDEBAR-->
+
+    <!--CONTAINER-->
+    <div class="ui container" id="mainPage">
+        <div class="ui middle aligned center aligned grid">
+            <div class="column">
+                <h2 class="ui black image header">
+                    <img src="assets/images/logo.jpg" class="image" id="logo">
+                    <br>
+                    <br>
+                    <div class="content">
+                        User Login
                     </div>
-                    <div class="field">
-                        <div class="ui left icon input">
-                            <i class="lock icon"></i>
-                            <input type="password" name="password" placeholder="Password">
+                </h2>
+                <form class="ui large form">
+                    <div class="ui stacked segment">
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="phone icon"></i>
+                                <input type="text" name="phone" placeholder="000-000-0000">
+                            </div>
                         </div>
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="lock icon"></i>
+                                <input type="password" name="password" placeholder="Password">
+                            </div>
+                        </div>
+                        <div class="ui fluid large black submit button">Login</div>
                     </div>
-                    <div class="ui fluid large black submit button">Login</div>
+
+                    <div class="ui error message"></div>
+
+                </form>
+
+                <div class="ui message">
+                    New to us? <a href="signup.html">Sign Up</a>
                 </div>
 
-                <div class="ui error message"></div>
-
-            </form>
-
-            <div class="ui message">
-                New to us? <a href="#">Sign Up</a>
             </div>
         </div>
     </div>
+    <!--/CONTAINER-->
+
 
 </body>
 
