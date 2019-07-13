@@ -5,7 +5,7 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     db.Activity.findAll({}).then(function(dbActivities) {
       res.render("index", {
-        msg: "Welcome!",
+        msg: "Welcome to the Admin!",
         activities: dbActivities
       });
     });
@@ -20,6 +20,18 @@ module.exports = function(app) {
         activities: dbActivity
       });
     });
+  });
+
+  app.post("/activity/activities", function(req, res) {
+    console.log(req.body);
+    db.Activity.create({
+      activity: req.body.activity,
+      type: req.body.type,
+      description: req.body.description
+    })
+      .then(function(dbActivity) {
+        res.json(dbActivity);
+      });
   });
 
   // Render 404 page for any unmatched routes

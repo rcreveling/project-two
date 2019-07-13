@@ -8,6 +8,18 @@ module.exports = function(app) {
     });
   });
 
+  // Get route for retrieving a single activity
+  app.get("/api/activities/:id", function(req, res) {
+    db.Activity.findOne({
+      where: {
+        id: req.params.id
+      }
+    })
+      .then(function(dbActivity) {
+        res.json(dbActivity);
+      });
+  });
+
   // Create a new example
   app.post("/api/activities", function(req, res) {
     db.Activity.create(req.body).then(function(dbActivity) {

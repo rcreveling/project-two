@@ -3,11 +3,15 @@
     <div class="row">
       <div class="col-8 offset-2">
         <h1>{{msg}}</h1>
-        <h2>This is our Home Page!</h2>
+        <h2>Create a new activity</h2>
         <form class="clearfix mb-4" action="POST">
           <div class="form-group">
-            <label for="activity-text">Example Text</label>
+            <label for="activity-text">Activity Text</label>
             <input type="text" id="activity-text" class="form-control" aria-describedby="activity-text" placeholder="Enter Activity Text">
+          </div>
+          <div class="form-group">
+            <label for="activity-type">Activity Type</label>
+            <textarea class="form-control" id="activity-type" aria-describedby="activity-type" placeholder="Enter Activity Type"></textarea>
           </div>
           <div class="form-group">
             <label for="activity-description">Activity Description</label>
@@ -15,7 +19,7 @@
           </div>
           <button id="submit" class="btn btn-primary float-right">Submit</button>
         </form>
-        <h3>Activities:</h3>
+        <h3>Full list of activities:</h3>
         <ul id="activity-list" class="list-group">
           {{#each activities}}
           <li data-id="{{this.id}}" class="list-group-item">
@@ -23,6 +27,14 @@
             <button class="btn btn-danger float-right delete">ｘ</button>
           </li>
           {{/each}}
+        </ul>
+        <br>
+        <h3>Relax Activities:</h3>
+        <ul id="relax-list" class="list-group">
+          <li data-id="{{this.id}}" class="list-group-item">
+            <a href="activity/{{this.id}}">{{this.activity}}</a>
+            <button class="btn btn-danger float-right delete">ｘ</button>
+          </li>
         </ul>
       </div>
     </div>
