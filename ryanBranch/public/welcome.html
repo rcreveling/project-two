@@ -13,34 +13,35 @@
             $('.ui.labeled.icon.sidebar').sidebar('toggle');
         }
     </script>
-
 </head>
 
 <body>
     <div class="ui fixed inverted menu">
-        <div class="ui container" id="topContainer">
+        <div class="ui container">
             <a href="#" class="header item" onclick=toggle()>
                 <img class="logo image" src="assets/images/logo.jpg" id="logo">
                 Project Name
             </a>
             <a href="#" class="item">Home</a>
+
         </div>
+        <div class="ui left demo vertical inverted sidebar labeled icon menu">
+            <a class="item">
+                <i class="home icon" href=""></i>
+                Home
+            </a>
+            <a class="item">
+                <i class="block layout icon"></i>
+                Topics
+            </a>
+            <a class="item">
+                <i class="smile icon"></i>
+                Friends
+            </a>
+        </div>
+
     </div>
 
-    <div class="ui left demo vertical inverted sidebar labeled icon menu">
-        <a class="item">
-            <i class="home icon"></i>
-            Home
-        </a>
-        <a class="item">
-            <i class="block layout icon"></i>
-            Topics
-        </a>
-        <a class="item">
-            <i class="smile icon"></i>
-            Friends
-        </a>
-    </div>
 </body>
 
 </html>

@@ -1,0 +1,23 @@
+body {
+    background-color: #DADADA;
+}
+
+body>.grid {
+    height: 100%;
+}
+
+.image {
+   
+    border-radius: 15px;
+    border: solid 1px black;
+}
+
+#logo {
+    box-shadow: 1px 1px 1px black;
+    margin-right: 2px;
+
+}
+
+.column {
+    max-width: 450px;
+}
