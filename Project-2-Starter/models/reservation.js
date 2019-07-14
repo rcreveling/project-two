@@ -6,14 +6,12 @@ module.exports = function(sequelize, DataTypes) {
 
 	Reservation.associate = function(models) {	
 
-		Reservation.belongsTo(models.Client, {
-			foreignKey: {
-				allowNull: false
-			}
+		Reservation.hasOne(models.Client, {
+			onDelete: "SET NULL"
 		});
 
 		Reservation.hasOne(models.Event, {
-			onDelete: "cascade"
+			onDelete: "SET NULL"
 		});
 
 	};

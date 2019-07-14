@@ -8,8 +8,10 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   Client.associate = function(models) {
-    Client.hasMany(models.Reservation, {
-      onDelete: "cascade"
+    // 1 to many reservations
+    Client.belongsToMany(models.Event, {
+      // delete all reservations when client is deleted
+      through: models.Reservation
     });
   };
 
