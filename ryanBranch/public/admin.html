@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Testing Semantic UI</title>
+    <link rel="stylesheet" type="text/css" href="/semantic/dist/semantic.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="/semantic/dist/semantic.js"></script>
+    <script>
+        function toggle() {
+            $('.ui.labeled.icon.sidebar').sidebar('toggle');
+        }
+    </script>
+    <style>
+        .thisPage {
+            margin: 0 auto !important;
+            max-width: 60vw !important;
+        }
+
+        .wide {
+            padding: 0 10px 0 10px !important;
+            text-align: center;
+        }
+
+        .larger {
+            font-size: 3em !important;
+        }
+    </style>
+</head>
+
+<body>
+    <!--NAVBAR-->
+    <div class="ui fixed inverted menu">
+        <div class="ui container">
+            <a href="#" onclick=toggle(); class="header item">
+                <img class="logo image" src="assets/images/logo.jpg" id="logo">
+                Project Name
+            </a>
+            <a href="index.html" class="item">Home</a>
+        </div>
+    </div>
+    <!--/NAVBAR-->
+
+    <!--SIDEBAR-->
+    <div class="ui left demo vertical inverted sidebar labeled icon menu">
+        <a class="item" href="index.html">
+            <i class="home icon"></i>
+            Home
+        </a>
+        <a class="item" href="topics.html">
+            <i class=" block layout icon"></i>
+            Topics
+        </a>
+        <a class="item">
+            <i class="add icon"></i>
+            New Event
+        </a>
+    </div>
+    <!--/SIDEBAR-->
+
+    <div class="ui container">
+        <div class="ui horizontally divided grid" id="mainPage">
+            <div class="four column row thisPage">
+                <div class="column wide">
+                    <h2>Calendar</h2>
+                    <br>
+                    <i class="calendar icon larger"></i>
+                </div>
+                <div class="column wide">
+                    <h2>Manage Users</h2>
+                    <br>
+                    <i class="address book icon larger"></i>
+                </div>
+                <div class="column wide">
+                    <h2>Manage Events</h2>
+                    <br>
+                    <i class="check icon larger"></i>
+                </div>
+                <div class="column wide">
+                    <h2>Current Registration</h2>
+                    <br>
+                    <i class="universal access icon larger"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

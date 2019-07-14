@@ -1,0 +1,138 @@
+<html>
+
+<head>
+    <!-- Standard Meta -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+    <!-- Site Properties -->
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="/semantic/dist/semantic.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="/semantic/dist/semantic.js"></script>
+
+
+    <script>
+        $(document).ready(function () {
+
+            $('.ui.form').form({
+                fields: {
+                    email: {
+                        identifier: 'email',
+                        rules: [{
+                            type: 'empty',
+                            prompt: 'Please enter your e-mail'
+                        },
+                        {
+                            type: 'email',
+                            prompt: 'Please enter a valid e-mail'
+                        }]
+                    },
+                    password: {
+                        identifier: 'password',
+                        rules: [{
+                            type: 'empty',
+                            prompt: 'Please enter your password'
+                        },
+                        {
+                            type: 'length[6]',
+                            prompt: 'Your password must be at least 6 characters'
+                        }]
+                    }
+                }
+            });
+        });
+        function toggle() {
+            $('.ui.labeled.icon.sidebar').sidebar('toggle');
+        }
+    </script>
+    <style>
+        .ui.middle.aligned.center.aligned.grid {
+            top: 20vh;
+        }
+
+        #mainPage {
+            padding: 10vh;
+        }
+    </style>
+</head>
+
+<body>
+    <!--NAVBAR-->
+    <div class="ui fixed inverted menu">
+        <div class="ui container">
+            <a href="#" class="header item">
+                <img class="logo image" onclick=toggle(); src="assets/images/logo.jpg" id="logo">
+                Project Name
+            </a>
+            <a href="index.html" class="item">Home</a>
+        </div>
+    </div>
+    <!--/NAVBAR-->
+
+    <!--SIDEBAR-->
+    <div class="ui left demo vertical inverted sidebar labeled icon menu">
+        <a class="item" href="index.html">
+            <i class="home icon"></i>
+            Home
+        </a>
+        <a class="item" href="topics.html">
+            <i class=" block layout icon"></i>
+            Topics
+        </a>
+        <a class="item">
+            <i class="smile icon"></i>
+            -------
+        </a>
+    </div>
+    <!--/SIDEBAR-->
+
+    <!--CONTAINER-->
+    <div class="ui container" id="mainPage">
+        <div class="ui middle aligned center aligned grid">
+            <div class="column">
+                <h2 class="ui black image header">
+                    <img src="assets/images/logo.jpg" class="image" id="logo">
+                    <br>
+                    <br>
+                    <div class="content">
+                        User Login
+                    </div>
+                </h2>
+                <form class="ui large form">
+                    <div class="ui stacked segment">
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="phone icon"></i>
+                                <input type="text" name="phone" placeholder="000-000-0000">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="lock icon"></i>
+                                <input type="password" name="password" placeholder="Password">
+                            </div>
+                        </div>
+                        <div class="ui fluid large black submit button">Login</div>
+                    </div>
+
+                    <div class="ui error message"></div>
+
+                </form>
+
+                <div class="ui message">
+                    New to us? <a href="signup.html">Sign Up</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--/CONTAINER-->
+
+
+</body>
+
+</html>
