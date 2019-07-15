@@ -2,14 +2,14 @@ var db = require("../models");
 
 module.exports = function(app) {
   // Get all examples
-  app.get("/api/activities", function(req, res) {
+  app.get("/api/activities/", function(req, res) {
     db.Activity.findAll({}).then(function(dbActivities) {
       res.json(dbActivities);
     });
   });
 
   // Create a new example
-  app.post("/api/activities", function(req, res) {
+  app.post("/api/activities/", function(req, res) {
     db.Activity.create(req.body).then(function(dbActivity) {
       res.json(dbActivity);
     });
