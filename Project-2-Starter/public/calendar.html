@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <head>
-    <title>Testing Semantic UI</title>
+    <title>Calendar</title>
     <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"
         integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
@@ -113,7 +113,7 @@
        */
       function listUpcomingEvents() {
         gapi.client.calendar.events.list({
-          'calendarId': 'primary',
+          'calendarId': '68ntk42um2ejpuktcbs2g0upgo@group.calendar.google.com',
           'timeMin': (new Date()).toISOString(),
           'showDeleted': false,
           'singleEvents': true,
