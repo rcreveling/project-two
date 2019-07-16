@@ -2,8 +2,8 @@
   "development": {
     "username": "root",
     "password": "Hannibal13!",
-    "database": "database_development",
-    "host": "127.0.0.1",
+    "database": "localmotion",
+    "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
@@ -16,8 +16,13 @@
   "production": {
     "username": "root",
     "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
+    "database": "testdb",
+    "host": "localhost",
+    "dialect": "mysql",
+    "logging": false
+  },
+  "production": {
+    "use_env_variable": "JAWSDB_URL",
     "dialect": "mysql"
   }
 }
