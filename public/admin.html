@@ -12,6 +12,26 @@
         function toggle() {
             $('.ui.labeled.icon.sidebar').sidebar('toggle');
         }
+        function calendar() {
+
+        }
+        function userView() {
+
+        }
+        function users(data) {
+            var tableBody = [$('<tbody>'), $('<tr>'), $('td', { dataLabel: "Name" }), $('td', { dataLabel: "Age" }), $('td', { dataLabel: "Job" })]
+            tableBody[2].text(data[0])
+            tableBody[3].text(data[1])
+            tableBody[4].text(data[2])
+            var table = tableBody[1].append(tableBody[2]).append(tableBody[3]).append(tableBody[4])
+            $('#masterTable').append(table);
+            return console.log([table])
+        }
+        function currentRegistration() {
+
+        }
+        $("#usersView").one("click", users(['Ryan', '20', 'nothing']))
+
     </script>
     <style>
         .thisPage {
@@ -35,8 +55,8 @@
     <div class="ui fixed inverted menu">
         <div class="ui container">
             <a href="#" onclick=toggle(); class="header item">
-                <img class="logo image" src="assets/images/logo.jpg" id="logo">
-                Project Name
+                <img class="logo image" src="assets/images/logo2.png" id="logo">
+                Local Motion
             </a>
             <a href="index.html" class="item">Home</a>
         </div>
@@ -53,9 +73,9 @@
             <i class=" block layout icon"></i>
             Topics
         </a>
-        <a class="item">
-            <i class="add icon"></i>
-            New Event
+        <a class="item" href="admin.html">
+            <i class="smile icon"></i>
+            Admin
         </a>
     </div>
     <!--/SIDEBAR-->
@@ -64,26 +84,46 @@
         <div class="ui horizontally divided grid" id="mainPage">
             <div class="four column row thisPage">
                 <div class="column wide">
-                    <h2>Calendar</h2>
+                    <h2><button class="ui button" onclick=calendar()>Calendar</button></h2>
                     <br>
                     <i class="calendar icon larger"></i>
                 </div>
                 <div class="column wide">
-                    <h2>Manage Users</h2>
+                    <h2><button class="ui button" id="usersView">Manage Users</button></h2>
                     <br>
                     <i class="address book icon larger"></i>
                 </div>
                 <div class="column wide">
-                    <h2>Manage Events</h2>
+                    <h2><a href="addevent.html"><button class="ui button">Manage Events</button></a></h2>
                     <br>
                     <i class="check icon larger"></i>
                 </div>
                 <div class="column wide">
-                    <h2>Current Registration</h2>
+                    <h2><button class="ui button">Current Registration</button></h2>
                     <br>
                     <i class="universal access icon larger"></i>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="ui container">
+        <div class="ui vertically divided grid" id="mainContent">
+            <table class="ui celled table" id="masterTable">
+                <thead>
+                    <tr>
+                        <th id="label1">Name</th>
+                        <th id="label2">Age</th>
+                        <th id="label3">Job</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Name">James</td>
+                        <td data-label="Age">24</td>
+                        <td data-label="Job">Engineer</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 

@@ -1,5 +1,5 @@
 body {
-    background-color: #DADADA;
+    background-color: rgba(210, 213, 252, 0.795) !important;
 }
 
 body>.grid {
@@ -13,9 +13,21 @@ body>.grid {
     border: solid 1px black;
 }
 
+.ui.fixed.inverted.menu {
+    background-color: rgba(48, 42, 68, 0.8)
+}
+
+.ui.left.demo.vertical.inverted.sidebar.labeled.icon.menu {
+    background-color: rgba(48, 42, 68, 0.8)
+}
+
 #logo {
+    height: 5vh;
+    width: auto;
     box-shadow: 1px 1px 1px black;
     margin-right: 2px;
+    background-color: white;
+    border: 3px solid transparent;
 
 }
 
