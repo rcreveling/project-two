@@ -11,6 +11,7 @@ require("./routes/apiRoutes")
 
 
 routes(app, path);
+
 var syncOptions = { force: false };
 
 // Starting the server, syncing our models ------------------------------------/
@@ -25,3 +26,4 @@ db.sequelize.sync(syncOptions).then(function () {
 });
 
 module.exports = app;
+
