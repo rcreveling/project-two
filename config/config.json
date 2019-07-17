@@ -1,6 +1,9 @@
 {
   "development": {
-    "use_env_variable": "LOCALDB_URL",
+    "username": "root",
+    "password": "Eddie10!",
+    "database": "localmotion",
+    "host": "localhost",
      "dialect": "mysql"
   },
   "production": {

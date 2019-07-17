@@ -7,10 +7,11 @@ const db = require("./models")
 var PORT = process.env.PORT || 3000;
 app.use(express.static("public"))
 const routes = require('./routes/htmlRoutes')
-require("./routes/apiRoutes")
+const apiRoutes = require("./routes/apiRoutes")
 
 
 routes(app, path);
+apiRoutes(app, path);
 
 var syncOptions = { force: false };
 
