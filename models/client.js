@@ -3,15 +3,18 @@ module.exports = function(sequelize, DataTypes) {
     name: DataTypes.STRING,
     address: DataTypes.STRING,
     phone: DataTypes.STRING,
-    age: DataTypes.INTEGER
+    dob: DataTypes.DATEONLY,
+    isAdmin: DataTypes.BOOLEAN,
+    password: DataTypes.STRING
   });
 
   Client.associate = function(models) {
-    Client.hasOne(models.Reservation, {
-      onDelete: "set null"
+    // 1 to many reservations
+    Client.belongsToMany(models.Event, {
+      // delete all reservations when client is deleted
+      through: models.Reservation
     });
   };
 
   return Client;
 };
-

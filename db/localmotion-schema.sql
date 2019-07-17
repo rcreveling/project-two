@@ -26,12 +26,11 @@ CREATE TABLE `activities` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `activity` varchar(255) DEFAULT NULL,
   `description` text,
-  `enabled` tinyint(1) DEFAULT NULL,
   `type` varchar(255) DEFAULT NULL,
   `createdAt` datetime NOT NULL,
   `updatedAt` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -46,11 +45,35 @@ CREATE TABLE `clients` (
   `name` varchar(255) DEFAULT NULL,
   `address` varchar(255) DEFAULT NULL,
   `phone` varchar(255) DEFAULT NULL,
-  `age` int(11) DEFAULT NULL,
+  `dob` date DEFAULT NULL,
+  `isAdmin` tinyint(1) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
   `createdAt` datetime NOT NULL,
   `updatedAt` datetime NOT NULL,
+  `ReservationClientId` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `events`
+--
+
+DROP TABLE IF EXISTS `events`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `events` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `onDate` datetime NOT NULL,
+  `enabled` tinyint(1) DEFAULT NULL,
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL,
+  `ActivityId` int(11) DEFAULT NULL,
+  `ReservationClientId` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `ActivityId` (`ActivityId`),
+  CONSTRAINT `events_ibfk_1` FOREIGN KEY (`ActivityId`) REFERENCES `activities` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -61,18 +84,15 @@ DROP TABLE IF EXISTS `reservations`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `reservations` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `activity` varchar(255) DEFAULT NULL,
-  `name` varchar(255) DEFAULT NULL,
+  `isBooked` tinyint(1) DEFAULT NULL,
   `createdAt` datetime NOT NULL,
   `updatedAt` datetime NOT NULL,
-  `ActivityId` int(11) DEFAULT NULL,
-  `ClientId` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `ActivityId` (`ActivityId`),
-  KEY `ClientId` (`ClientId`),
-  CONSTRAINT `reservations_ibfk_1` FOREIGN KEY (`ActivityId`) REFERENCES `activities` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `reservations_ibfk_2` FOREIGN KEY (`ClientId`) REFERENCES `clients` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
+  `ClientId` int(11) NOT NULL,
+  `EventId` int(11) NOT NULL,
+  PRIMARY KEY (`ClientId`,`EventId`),
+  KEY `EventId` (`EventId`),
+  CONSTRAINT `reservations_ibfk_1` FOREIGN KEY (`ClientId`) REFERENCES `clients` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `reservations_ibfk_2` FOREIGN KEY (`EventId`) REFERENCES `events` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -85,4 +105,4 @@ CREATE TABLE `reservations` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-07-13 10:18:31
+-- Dump completed on 2019-07-16 20:10:39
