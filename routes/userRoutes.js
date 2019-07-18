@@ -6,12 +6,15 @@ const passport = require('passport');
 const db = require('../models');
 // const { forwardAuthenticated } = require('../config/auth');
 
-router.post('/signup', function(req, res) {
-    console.log("signup post req.body: " + JSON.stringify(req.body));
-    // logic to gather Client data and save to db
-});
+module.exports = function (app) {
 
-router.post('/login', function(req,res) {
-    console.log("signup post req.body: " + JSON.stringify(req.body));
-    // call to passport for authentication
-});
+    router.post('/signup', function(req, res) {
+        console.log("signup post req.body: " + JSON.stringify(req.body));
+        // logic to gather Client data and save to db
+    });
+    
+    router.post('/login', function(req,res) {
+        console.log("signup post req.body: " + JSON.stringify(req.body));
+        // call to passport for authentication
+    });
+};
