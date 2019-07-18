@@ -5,6 +5,9 @@ module.exports = function(sequelize, DataTypes) {
 			type: DataTypes.DATE,
 			allowNull: false
 		},
+		location: {
+			type: DataTypes.STRING
+		},
 		enabled: { 
 			type: DataTypes.BOOLEAN
 		}
