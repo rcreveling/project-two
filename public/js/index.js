@@ -1,99 +1,106 @@
-// Get references to page elements
-var $exampleText = $("#example-text");
-var $exampleDescription = $("#example-description");
-var $submitBtn = $("#submit");
-var $exampleList = $("#example-list");
+$(document).ready(function () {
+  console.log("admin.js is called!");
+  // blogContainer holds all of our posts
+  var activityContainer = $(".activity-container");
+  $(document).on("click", "button.delete", handleActivityDelete);
+  $(document).on("click", "button.edit", handleActivityEdit);
+  var activities;
 
-// The API object contains methods for each kind of request we'll make
-var API = {
-  saveExample: function(example) {
-    return $.ajax({
-      headers: {
-        "Content-Type": "application/json"
-      },
-      type: "POST",
-      url: "api/examples",
-      data: JSON.stringify(example)
-    });
-  },
-  getExamples: function() {
-    return $.ajax({
-      url: "api/examples",
-      type: "GET"
-    });
-  },
-  deleteExample: function(id) {
-    return $.ajax({
-      url: "api/examples/" + id,
-      type: "DELETE"
+  // This function grabs posts from the database and updates the view
+  function getActivities() {
+    console.log("running GET!");
+    $.get("/api/activities/", function (data) {
+      console.log("Activities", data);
+      activities = data;
+      if (!activities || !activities.length) {
+        displayEmpty();
+      }
+      else {
+        initializeRows();
+        console.log("hitting else");
+      }
     });
   }
-};
 
-// refreshExamples gets new examples from the db and repopulates the list
-var refreshExamples = function() {
-  API.getExamples().then(function(data) {
-    var $examples = data.map(function(example) {
-      var $a = $("<a>")
-        .text(example.text)
-        .attr("href", "/example/" + example.id);
-
-      var $li = $("<li>")
-        .attr({
-          class: "list-group-item",
-          "data-id": example.id
-        })
-        .append($a);
-
-      var $button = $("<button>")
-        .addClass("btn btn-danger float-right delete")
-        .text("ｘ");
-
-      $li.append($button);
-
-      return $li;
-    });
-
-    $exampleList.empty();
-    $exampleList.append($examples);
-  });
-};
-
-// handleFormSubmit is called whenever we submit a new example
-// Save the new example to the db and refresh the list
-var handleFormSubmit = function(event) {
-  event.preventDefault();
-
-  var example = {
-    text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim()
-  };
-
-  if (!(example.text && example.description)) {
-    alert("You must enter an example text and description!");
-    return;
+  // This function does an API call to delete posts
+  function deleteActivity(id) {
+    $.ajax({
+      method: "DELETE",
+      url: "/api/activities/" + id
+    })
+      .then(function () {
+        getActivities();
+      });
   }
 
-  API.saveExample(example).then(function() {
-    refreshExamples();
-  });
+  // Getting the initial list of posts
+  getActivities();
+  // InitializeRows handles appending all of our constructed post HTML inside
+  // blogContainer
+  function initializeRows() {
+    activityContainer.empty();
+    var activitiesToAdd = [];
+    for (var i = 0; i < activities.length; i++) {
+      activitiesToAdd.push(createNewRow(activities[i]));
+    }
+    activityContainer.append(activitiesToAdd);
+  }
 
-  $exampleText.val("");
-  $exampleDescription.val("");
-};
+  // This function constructs a post's HTML
+  function createNewRow(activity) {
+    var newActivityCard = $("<div>");
+    newActivityCard.addClass("card");
+    var newActivityCardHeading = $("<div>");
+    newActivityCardHeading.addClass("card-header");
+    var deleteBtn = $("<button>");
+    deleteBtn.text("x");
+    deleteBtn.addClass("delete btn btn-danger");
+    var editBtn = $("<button>");
+    editBtn.text("EDIT");
+    editBtn.addClass("edit btn btn-default");
+    var newActivityTitle = $("<h2>");
+    var newActivityDate = $("<small>");
+    var newActivityDescription = $("<div>");
+    var newActivityCategory = $("<div>");
 
-// handleDeleteBtnClick is called when an example's delete button is clicked
-// Remove the example from the db and refresh the list
-var handleDeleteBtnClick = function() {
-  var idToDelete = $(this)
-    .parent()
-    .attr("data-id");
+    var newActivityCardBody = $("<div>");
+    newActivityCardBody.addClass("card-body");
+    var newActivityBody = $("<p>");
+    newActivityTitle.text(activity.activity + " ");
+    newActivityDescription.text(activity.description);
+    var formattedDate = new Date(activity.createdAt);
+    formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
+    newActivityDate.text(formattedDate);
+    newActivityTitle.append(newActivityDate);
+    newActivityCardHeading.append(deleteBtn);
+    newActivityCardHeading.append(editBtn);
+    newActivityCardHeading.append(newActivityTitle);
+    newActivityCardHeading.append(newActivityCategory);
+    newActivityCardBody.append(newActivityBody);
+    newActivityCard.append(newActivityCardHeading);
+    newActivityCard.append(newActivityCardBody);
+    newActivityCard.data("activity", activity);
+    return newActivityCard;
+  }
 
-  API.deleteExample(idToDelete).then(function() {
-    refreshExamples();
-  });
-};
+  // This function figures out which post we want to delete and then calls
+  // deletePost
+  function handleActivityDelete() {
+    var currentActivity = $(this)
+      .parent()
+      .parent()
+      .data("activity");
+    deleteActivity(currentActivity.id);
+  }
 
-// Add event listeners to the submit and delete buttons
-$submitBtn.on("click", handleFormSubmit);
-$exampleList.on("click", ".delete", handleDeleteBtnClick);
+  // This function figures out which post we want to edit and takes it to the
+  // Appropriate url
+  function handleActivityEdit() {
+    var currentActivity = $(this)
+      .parent()
+      .parent()
+      .data("activity");
+    window.location.href = "/addevent?activity_id=" + currentActivity.id;
+  }
+
+});

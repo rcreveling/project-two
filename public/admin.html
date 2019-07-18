@@ -9,7 +9,7 @@
         integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="/semantic/dist/semantic.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/moment@2/moment.min.js"></script>
-    <script src="js/index.js" type="text/javascript"></script>
+    <script src="./js/index.js" type="text/javascript"></script>
 
     <script src="https://apis.google.com/js/api.js"></script>
     <script type="text/javascript">
@@ -198,7 +198,7 @@
         calendar();
         userView();
     </script>
-    <script src="js/index.js"></script>
+    <script src="./js/addevent.js"></script>
     <style>
         .thisPage {
             margin: 0 auto !important;
@@ -307,6 +307,11 @@
         <button id="authorize_button" style="display: none;">Authorize</button>
         <button id="signout_button" style="display: none;">Sign Out</button>
         <pre id="content" style="white-space: pre-wrap;"></pre>
+    </div>
+    <a class="btn btn-light" href="/addevent"><button>New Activity</button></a>
+    <div class="ui container" id="clients">
+        <div id="activity-list" class="activity-container"></div>
+
     </div>
 
 </body>

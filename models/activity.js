@@ -1,4 +1,4 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
 
   var Activity = sequelize.define("Activity", {
     activity: DataTypes.STRING,
@@ -6,7 +6,7 @@ module.exports = function(sequelize, DataTypes) {
     type: DataTypes.STRING
   });
 
-  Activity.associate = function(models) {
+  Activity.associate = function (models) {
     Activity.hasMany(models.Event, {
       onDelete: "cascade"
     });

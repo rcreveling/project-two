@@ -4,7 +4,6 @@
     <title>Testing Semantic UI</title>
     <link rel="stylesheet" type="text/css" href="/semantic/dist/semantic.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"
         integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="/semantic/dist/semantic.js"></script>
@@ -46,7 +45,6 @@
         </div>
     </div>
     <!--/NAVBAR-->
-
     <!--SIDEBAR-->
     <div class="ui left demo vertical inverted sidebar labeled icon menu">
         <a class="item" href="index.html">
@@ -66,22 +64,21 @@
     <br>
     <br>
     <br>
-
     <div class="ui midle aligned center aligned grid container" id="mainCont">
-        <form class="ui large form segment">
+        <form class="ui large form segment" id="form">
             <div class="ui inverted two fields">
                 <div class="ui inverted field">
                     <label>Event name</label>
-                    <input type="text" placeholder="Event Name" name="event_name">
+                    <input type="text" placeholder="Event Name" name="event_name" id="event_name">
                 </div>
                 <div class="ui inverted divider"></div>
                 <div class="ui inverted right icon field">
                     <i class="globe icon"></i>
-                    <input type="text" placeholder="Event Location" name="event_location">
+                    <input type="text" placeholder="Event Location" name="event_location" id="event_location">
                 </div>
             </div>
             <div class="field">
-                <select class="ui dropdown" name="type">
+                <select class="ui dropdown" name="type" id="category">
                     <option value="">Activity Type</option>
                     <option value="relax">Relaxing</option>
                     <option value="active">Active</option>
@@ -90,7 +87,7 @@
             </div>
             <div class="ui inverted divider"></div>
             <div class="ui fluid inverted left icon input">
-                <input type="textarea" placeholder="Description">
+                <input type="textarea" placeholder="Description" id="description">
                 <i class="pen icon"></i>
             </div>
             <button class="ui button" type="submit">Submit</button>
@@ -98,7 +95,7 @@
         </form>
     </div>
     </div>
-
+    <script src="./js/addevent.js" type="text/javascript"></script>
 </body>
 
 </html>
