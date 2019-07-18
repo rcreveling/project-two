@@ -4,7 +4,7 @@
   "description": "Project 2 Starter",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "gulp && node dist/server.js",
     "poststart": "npm prune --production",
     "lint": "eslint --quiet .",
     "fix": "eslint --fix .",
