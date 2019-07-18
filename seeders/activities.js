@@ -17,13 +17,11 @@ module.exports = {
    },{
     activity: 'Storm Watching',
     description: "We're gonna find Katrina, we're gonna bring her to justice",
-    enabled: 0,
     createdAt: new Date(),
     updatedAt: new Date()
    },{
     activity: 'Bocchi Ball',
     description: 'Roll some balls, get some points',
-    enabled: 0,
     createdAt: new Date(),
     updatedAt: new Date()
    },{
