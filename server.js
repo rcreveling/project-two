@@ -1,28 +1,29 @@
 require("dotenv").config();
 
-const express = require('express')
-const app = express()
+const express = require('express');
+const app = express();
 const path = require('path');
-const db = require("./models")
+const db = require("./models");
+const passport = require('passport');
+const session = require('express-session');
 
-const passport = require('passport')
-const session = require('express-session')
-
-
-app.use(express.static("public"))
-const routes = require('./routes/htmlRoutes')
-require("./routes/apiRoutes")
-routes(app, path)
-
-// signup and login (logoff?) routes
-require("./routes/userRoutes")(app)
+app.use(express.static("public"));
 
 // passport related
-require('./config/passport')(passport)
+require('./config/passport')(passport);
 
 // Passport middleware
-app.use(passport.initialize())
-app.use(passport.session())
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+const routes = require('./routes/htmlRoutes');
+const apiRoutes = require('./routes/apiRoutes');
+// signup and login (logoff?) routes
+const userRoutes = require('./routes/userRoutes');
+routes(app, path);
+apiRoutes(app, path);
+userRoutes(app, path);
 
 // Express session used to persist session data
 app.use(
@@ -31,9 +32,9 @@ app.use(
     resave: true,
     saveUninitialized: true
   })
-)
+);
 
-var PORT = process.env.PORT || 3000
+var PORT = process.env.PORT || 3000;
 
 var syncOptions = { force: false }
 

@@ -14,11 +14,15 @@ body>.grid {
 }
 
 .ui.fixed.inverted.menu {
-    background-color: rgba(48, 42, 68, 0.8)
+    background-color: rgba(48, 42, 68, 0.8);
 }
 
 .ui.left.demo.vertical.inverted.sidebar.labeled.icon.menu {
     background-color: rgba(48, 42, 68, 0.8)
+}
+
+#calendar {
+    align-content: center;
 }
 
 #logo {
