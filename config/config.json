@@ -4,7 +4,11 @@
      "dialect": "mysql"
   },
   "production": {
-    "use_env_variable": "JAWSDB_URL",
-    "dialect": "mysql"
+    "username": "aviylsdzjypdai3r",
+    "password": "vqx0zd27ql726v4y",
+    "database": "hgdd44p93t47c874",
+    "host": "xefi550t7t6tjn36.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "dialect": "mysql",
+    "operatorsAliases": false
   }
 }
