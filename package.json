@@ -1,7 +1,7 @@
 {
-  "name": "node-handlebars-boilerplate",
+  "name": "localmotion",
   "version": "1.0.0",
-  "description": "Project 2 Starter",
+  "description": "Getting Seniors active and in motion",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -24,7 +24,8 @@
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "semantic-ui-calendar": "0.0.8",
-    "sequelize": "^5.10.1"
+    "sequelize": "^5.10.1",
+    "sequelize-cli": "^5.5.0"
   },
   "devDependencies": {
     "chai": "^4.2.0",
