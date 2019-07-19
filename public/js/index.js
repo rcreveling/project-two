@@ -48,7 +48,7 @@ $(document).ready(function () {
 
   // This function constructs a post's HTML
   function createNewRow(activity) {
-    var newActivityCard = $("<div>");
+    var newActivityCard = $("<div>", { class: "ui form four columns", id: "" });
     newActivityCard.addClass("card");
     var newActivityCardHeading = $("<div>");
     newActivityCardHeading.addClass("card-header");

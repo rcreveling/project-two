@@ -6,7 +6,7 @@ const path = require('path');
 const db = require("./models");
 const passport = require('passport');
 const session = require('express-session');
-
+const bodyParser = require('body-parser')
 app.use(express.static("public"));
 app.use('/semantic', express.static(path.join(__dirname, '/semantic/dist/')))
 // passport related
@@ -15,6 +15,7 @@ require('./config/passport')(passport);
 // Passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(bodyParser.urlencoded({ extended: false }))
 
 
 const routes = require('./routes/htmlRoutes');

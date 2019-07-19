@@ -172,6 +172,8 @@
         function calendar() {
             if (!calendarView) {
                 $("#calendar").removeClass("hidden")
+                $("#userGrid").addClass("hidden")
+                userViewNow = false
                 calendarView = true;
             } else {
                 $("#calendar").addClass("hidden")
@@ -184,6 +186,8 @@
                 userViewNow = true;
             } else {
                 $("#userGrid").removeClass("hidden")
+                $("#calendar").addClass("hidden")
+                calendarView = false;
                 userViewNow = false;
             }
         }
