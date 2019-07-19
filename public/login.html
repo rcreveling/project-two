@@ -20,15 +20,15 @@
 
             $('.ui.form').form({
                 fields: {
-                    email: {
-                        identifier: 'email',
+                    phone: {
+                        identifier: 'phone',
                         rules: [{
                             type: 'empty',
-                            prompt: 'Please enter your e-mail'
+                            prompt: 'Please enter your phone number'
                         },
                         {
-                            type: 'email',
-                            prompt: 'Please enter a valid e-mail'
+                            type: 'phone',
+                            prompt: 'Please enter a valid phone number'
                         }]
                     },
                     password: {
@@ -65,7 +65,7 @@
     <div class="ui fixed inverted menu">
         <div class="ui container">
             <a href="#" class="header item">
-                <img class="logo image" onclick=toggle(); src="assets/images/logo2.png" id="logo">
+                <img class="logo image" onclick=toggle(); src="./assets/images/logo2.png" id="logo">
                 Local Motion
             </a>
             <a href="index.html" class="item">Home</a>
@@ -95,7 +95,7 @@
         <div class="ui middle aligned center aligned grid">
             <div class="column">
                 <h2 class="ui black image header">
-                    <img src="assets/images/logo.jpg" class="image" id="logo">
+                    <img src="./assets/images/logo2.png" class="image" id="loginLogo">
                     <br>
                     <br>
                     <div class="content">

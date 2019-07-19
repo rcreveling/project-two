@@ -163,9 +163,10 @@
         </script>
     <script>
 
-        var calendarView = false
+        var calendarView = true
         var userViewNow = false
         var currentView = false
+        var eventView = false
         function toggle() {
             $('.ui.labeled.icon.sidebar').sidebar('toggle');
         }
@@ -173,22 +174,42 @@
             if (!calendarView) {
                 $("#calendar").removeClass("hidden")
                 $("#userGrid").addClass("hidden")
+                $('#activities').addClass("hidden")
                 userViewNow = false
+                eventView = false;
                 calendarView = true;
             } else {
                 $("#calendar").addClass("hidden")
                 calendarView = false;
             }
         }
-        function userView() {
-            if (!userViewNow) {
+        function events() {
+            if (!eventView) {
                 $("#userGrid").addClass("hidden")
-                userViewNow = true;
-            } else {
-                $("#userGrid").removeClass("hidden")
                 $("#calendar").addClass("hidden")
+                $("#activities").removeClass("hidden")
+                eventView = true;
                 calendarView = false;
                 userViewNow = false;
+
+            } else {
+                $("#activities").addClass("hidden")
+                eventView = false;
+            }
+        }
+        function userView() {
+            if (!userViewNow) {
+                $("#userGrid").removeClass("hidden")
+                $("#calendar").addClass("hidden")
+                $("#activities").addClass("hidden")
+                calendarView = false;
+                userViewNow = true;
+                eventView = false;
+            } else {
+                $("#userGrid").addClass("hidden")
+                userViewNow = true;
+                calendarView = false;
+                eventView = false;
             }
         }
         function users(data) {
@@ -201,6 +222,7 @@
 
         calendar();
         userView();
+        eventView();
     </script>
     <script src="./js/addevent.js"></script>
     <style>
@@ -268,7 +290,7 @@
                     <i class="address book icon larger"></i>
                 </div>
                 <div class="column wide">
-                    <h2><a href="addevent.html"><button class="ui button">Manage Events</button></a></h2>
+                    <h2><button class="ui button" onclick=events()>Manage Events</button></h2>
                     <br>
                     <i class="check icon larger"></i>
                 </div>
@@ -305,15 +327,17 @@
     <div class="ui container hidden" id="calendar">
 
         <iframe
-            src="https://calendar.google.com/calendar/embed?src=68ntk42um2ejpuktcbs2g0upgo%40group.calendar.google.com&ctz=America%2FNew_York"
-            style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+            src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=America%2FNew_York&amp;src=NjhudGs0MnVtMmVqcHVrdGNiczJnMHVwZ29AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=YWRxaG9kbnF1c3RpcmpsY2hraGZoODRzYThAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=aGxsazVyNjA0bXZidGczNmpqNzFidWF2bm9AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%23c60000&amp;color=%234285F4&amp;color=%2300a3a6&amp;showTitle=0"
+            style="border-width:0;margin: 0 auto !important" width="800" height="600" frameborder="0"
+            scrolling="no"></iframe>
         <!--Add buttons to initiate auth sequence and sign out-->
         <button id="authorize_button" style="display: none;">Authorize</button>
         <button id="signout_button" style="display: none;">Sign Out</button>
         <pre id="content" style="white-space: pre-wrap;"></pre>
     </div>
-    <a class="btn btn-light" href="/addevent"><button>New Activity</button></a>
-    <div class="ui container" id="clients">
+
+    <div class="ui container hidden" id="activities">
+        <a class="btn btn-light" href="/addevent"><button>New Activity</button></a>
         <div id="activity-list" class="activity-container"></div>
 
     </div>
