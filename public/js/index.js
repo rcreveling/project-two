@@ -106,7 +106,7 @@ $(document).ready(function () {
       .parent()
       .parent()
       .data("activity");
-    window.location.href = "/addevent?activity_id=" + currentActivity.id;
+    // window.location.href = "/addevent?activity_id=" + currentActivity.id;
   }
 
 });
