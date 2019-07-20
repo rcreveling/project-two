@@ -20,15 +20,15 @@
 
             $('.ui.form').form({
                 fields: {
-                    email: {
-                        identifier: 'email',
+                    phone: {
+                        identifier: 'phone',
                         rules: [{
                             type: 'empty',
-                            prompt: 'Please enter your e-mail'
-                        },
-                        {
-                            type: 'email',
-                            prompt: 'Please enter a valid e-mail'
+                            prompt: 'Please enter your phone number'
+                        // },
+                        // {
+                        //     type: 'email',
+                        //     prompt: 'Please enter a valid e-mail'
                         }]
                     },
                     password: {
@@ -38,8 +38,8 @@
                             prompt: 'Please enter your password'
                         },
                         {
-                            type: 'length[6]',
-                            prompt: 'Your password must be at least 6 characters'
+                            type: 'length[5]',
+                            prompt: 'Your password must be at least 5 characters'
                         }]
                     }
                 }
@@ -107,13 +107,13 @@
                         <div class="field">
                             <div class="ui left icon input">
                                 <i class="phone icon"></i>
-                                <input type="text" name="phone" placeholder="000-000-0000">
+                                <input type="text" name="phone" id="phone" placeholder="000-000-0000">
                             </div>
                         </div>
                         <div class="field">
                             <div class="ui left icon input">
                                 <i class="lock icon"></i>
-                                <input type="password" name="password" placeholder="Password">
+                                <input type="password" name="password" id="password" placeholder="Password">
                             </div>
                         </div>
                         <div class="ui fluid large black submit button">Login</div>
@@ -132,7 +132,7 @@
     </div>
     <!--/CONTAINER-->
 
-    <script src="./js/jan-login.js" type="text/javascript"></script>
+    <script src="./js/login.js" type="text/javascript"></script>
 
 
 </body>

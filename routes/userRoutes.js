@@ -11,7 +11,15 @@ module.exports = function (app) {
     app.post('/signup', function(req, res) {
         console.log("signup post req.body: " + JSON.stringify(req.body));
         // logic to gather Client data and save to db
-        const { fname, lname, phone, email, dob, address, password, password2 } = req.body;
+        const { first_name, 
+                last_name, 
+                dob, 
+                gender, 
+                address,
+                email, 
+                phone, 
+                password 
+                } = req.body;
 
         // ====================================================================
         // validate signup form
@@ -53,15 +61,17 @@ module.exports = function (app) {
                 // password2
                 // });
             } else {
-                var name = fname + " " + lname
                 const newClient = ({
-                    name,
-                    address,
-                    phone,
+                    first_name,
+                    last_name,
                     dob,
+                    gender,
+                    address,
                     email,
+                    phone,
                     password
                 });
+
 
                 bcrypt.genSalt(10, (err, salt) => {
                 bcrypt.hash(newClient.password, salt, (err, hash) => {
@@ -69,12 +79,12 @@ module.exports = function (app) {
                     newClient.password = hash;
                     db.Client.create( newClient )
                     .then(user => {
-                        console.log("user: " + JSON.stringify(user));
+                        console.log("new user: " + JSON.stringify(user));
                         // req.flash(
                         // 'success_msg',
                         // 'You are now registered and can log in'
                         // );
-                        // res.redirect('/users/login');
+                        res.redirect('/login');
                     })
                     .catch(err => console.log(err));
                 });
