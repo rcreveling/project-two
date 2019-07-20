@@ -1,6 +1,6 @@
 body {
     height: 100% !important;
-    background: linear-gradient(transparent 0%, rgba(33, 3, 34, 0.8) 60%) !important;
+    background: linear-gradient(transparent 0%, rgba(21, 14, 85, 0.6) 60%) !important;
 }
 
 body>.grid {
@@ -20,22 +20,23 @@ body>.grid {
 }
 .ui.fixed.inverted.menu {
     
-    background-color: rgba(48, 42, 68, 0.8);
+    background-color: rgba(40, 14, 124, 0.664);
     height: 8vh !important;
 }
 
 .ui.left.demo.vertical.inverted.sidebar.labeled.icon.menu {
-    background-color: rgba(48, 42, 68, 0.8)
+    background-color: rgba(47, 35, 87, 0.8)
 }
 div.pusher {
     height: 100vw !important;
-    background: linear-gradient(rgba(255, 255, 255, 0.911), rgba(33, 3, 34, 0.6) 60%) !important;
+    background: linear-gradient(rgba(255, 255, 255, 0.911), rgba(21, 14, 85, 0.8) 60%) !important;
 
 }
 #calendar {
     margin-top: 0 !important;
     margin-bottom: -8vh !important;
     align-content: center;
+    border-radius: 15px;
     
 }
 #brand {
