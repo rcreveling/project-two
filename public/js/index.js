@@ -13,7 +13,7 @@ $(document).ready(function () {
       console.log("Activities", data);
       activities = data;
       if (!activities || !activities.length) {
-        displayEmpty();
+        console.log("empty")
       }
       else {
         initializeRows();
@@ -48,39 +48,45 @@ $(document).ready(function () {
 
   // This function constructs a post's HTML
   function createNewRow(activity) {
-    var newActivityCard = $("<div>", { class: "ui form four columns", id: "" });
-    newActivityCard.addClass("card");
-    var newActivityCardHeading = $("<div>");
-    newActivityCardHeading.addClass("card-header");
-    var deleteBtn = $("<button>");
-    deleteBtn.text("x");
-    deleteBtn.addClass("delete btn btn-danger");
-    var editBtn = $("<button>");
-    editBtn.text("EDIT");
-    editBtn.addClass("edit btn btn-default");
-    var newActivityTitle = $("<h2>");
-    var newActivityDate = $("<small>");
-    var newActivityDescription = $("<div>");
-    var newActivityCategory = $("<div>");
+    var newActivityBody;
+    var newActivityRow = $("<tr>", { class: "", id: "" });
+    // newActivityCard.addClass("card");
+    // var newActivityCardHeading = $("<tr>");
+    // newActivityCardHeading.addClass("card-header");
+    var deleteBtn = $("<button>", { class: "ui button", id: "delete", text: "x" });
+    // deleteBtn.text("x");
+    // deleteBtn.addClass("ui button");
+    var editBtn = $("<button>", { class: "ui button", id: "edit", text: "EDIT", onclick: handleActivityEdit() });
+    // editBtn.text("EDIT");
+    // editBtn.addClass("ui button");
+    var newActivityTitle = $("<td>", { dataLabel: "Activity" });
+    var newActivityDate = $("<td>", { dataLabel: "Date" });
+    var newActivityDescription = $("<td>", { dataLabel: "Description" });
+    var newActivityCategory = $("<td>", { dataLabel: "Category" });
 
-    var newActivityCardBody = $("<div>");
-    newActivityCardBody.addClass("card-body");
-    var newActivityBody = $("<p>");
+    // var newActivityCardBody = $("<div>");
+    // newActivityCardBody.addClass("card-body");
+    // var newActivityBody = $("<p>");
     newActivityTitle.text(activity.activity + " ");
     newActivityDescription.text(activity.description);
     var formattedDate = new Date(activity.createdAt);
+    newActivityCategory.text(activity.type);
     formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
     newActivityDate.text(formattedDate);
-    newActivityTitle.append(newActivityDate);
-    newActivityCardHeading.append(deleteBtn);
-    newActivityCardHeading.append(editBtn);
-    newActivityCardHeading.append(newActivityTitle);
-    newActivityCardHeading.append(newActivityCategory);
-    newActivityCardBody.append(newActivityBody);
-    newActivityCard.append(newActivityCardHeading);
-    newActivityCard.append(newActivityCardBody);
-    newActivityCard.data("activity", activity);
-    return newActivityCard;
+    // newActivityTitle.append(newActivityDate);
+    // newActivityRow.append(deleteBtn);
+    // newActivityRow.append(editBtn);
+    // newActivityRow.append(newActivityTitle);
+    // newActivityRow.append(newActivityCategory);
+    // newActivityCardBody.append(newActivityBody);
+    // newActivityRow.append(newActivityCardHeading);
+    // newActivityRow.append(newActivityCardBody);
+    newActivityRow.data("activity", activity);
+    newActivityRow.append(newActivityTitle).append(newActivityDescription).append(newActivityCategory).append(deleteBtn).append(editBtn);
+    return $('#activityTable').append(newActivityRow);
+    // console.log("here is the new row");
+    // console.log(newActivityRow);
+    // return newActivityRow;
   }
 
   // This function figures out which post we want to delete and then calls

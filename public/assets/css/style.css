@@ -1,5 +1,6 @@
 body {
-    background-color: linear-gradient(transparent 0%, rgba(33, 3, 34, 0.8) 40%) !important;
+    height: 10% !important;
+    background: linear-gradient(transparent 0%, rgba(33, 3, 34, 0.8) 60%) !important;
 }
 
 body>.grid {

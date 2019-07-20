@@ -47,4 +47,9 @@ module.exports = function (app) {
             });
     });
 
+    app.get("/api/events/", function (req, res) {
+        db.Event.findAll({}).then(function (dbEvents) {
+            res.json(dbEvents)
+        })
+    })
 };

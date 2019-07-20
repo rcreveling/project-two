@@ -167,6 +167,7 @@
         var userViewNow = false
         var currentView = false
         var eventView = false
+        var activityViewNow = false
         function toggle() {
             $('.ui.labeled.icon.sidebar').sidebar('toggle');
         }
@@ -174,7 +175,7 @@
             if (!calendarView) {
                 $("#calendar").removeClass("hidden")
                 $("#userGrid").addClass("hidden")
-                $('#activities').addClass("hidden")
+                $("#activityGrid").addClass("hidden")
                 userViewNow = false
                 eventView = false;
                 calendarView = true;
@@ -183,46 +184,43 @@
                 calendarView = false;
             }
         }
-        function events() {
-            if (!eventView) {
-                $("#userGrid").addClass("hidden")
-                $("#calendar").addClass("hidden")
-                $("#activities").removeClass("hidden")
-                eventView = true;
-                calendarView = false;
-                userViewNow = false;
 
-            } else {
-                $("#activities").addClass("hidden")
-                eventView = false;
-            }
-        }
         function userView() {
             if (!userViewNow) {
                 $("#userGrid").removeClass("hidden")
+                $("#activityGrid").addClass("hidden")
                 $("#calendar").addClass("hidden")
-                $("#activities").addClass("hidden")
                 calendarView = false;
                 userViewNow = true;
                 eventView = false;
+                activityViewNow = false;
             } else {
                 $("#userGrid").addClass("hidden")
-                userViewNow = true;
-                calendarView = false;
-                eventView = false;
+                userViewNow = false;
             }
         }
-        function users(data) {
 
-        }
-        function currentRegistration() {
+        function activityView() {
+            if (!activityViewNow) {
+                $("#activityGrid").removeClass("hidden")
+                $("#userGrid").addClass("hidden")
+                $("#calendar").addClass("hidden")
+                $("#activities").addClass("hidden")
+                activityViewNow = true;
+                calendarView = false;
+                eventView = false;
+                userViewNow = false;
 
+            } else {
+                $("#activityGrid").addClass("hidden")
+                activityViewNow = false;
+            }
         }
-        $("#usersView").one("click", users(['Ryan', '20', 'nothing']))
 
         calendar();
         userView();
         eventView();
+
     </script>
     <script src="./js/addevent.js"></script>
     <style>
@@ -244,6 +242,20 @@
             display: none !important;
         }
 
+        #activityGrid {
+            min-height: fit-content;
+            max-height: 100%;
+        }
+
+        #calendarView {
+            height: 50vh;
+            width: 50vw;
+        }
+
+        #userGrid {
+            width: 50vw;
+        }
+
         #calendar {
             display: flex;
             flex-direction: column !important;
@@ -251,7 +263,6 @@
             width: fit-content !important;
             padding-top: .5vh !important;
             height: fit-content !important;
-            background-color: rgba(70, 14, 57, 0.8);
         }
     </style>
 </head>
@@ -303,7 +314,7 @@
                     <i class="address book icon larger"></i>
                 </div>
                 <div class="column wide">
-                    <h2><button class="ui button" onclick=events()>Manage Events</button></h2>
+                    <h2><button class="ui button" onclick=activityView()>Manage Events</button></h2>
                     <br>
                     <i class="check icon larger"></i>
                 </div>
@@ -316,7 +327,7 @@
         </div>
     </div>
 
-    <div class="ui container" id="userGrid">
+    <div class="ui container hidden" id="userGrid">
         <div class="ui vertically divided grid" id="mainContent">
             <table class="ui celled table" id="masterTable">
                 <thead>
@@ -337,24 +348,51 @@
         </div>
     </div>
 
-    <div class="ui container hidden" id="calendar">
+    <div class="ui container" id="calendar">
         <div class="ui inverted divider"></div>
 
         <iframe
             src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=America%2FNew_York&amp;src=NjhudGs0MnVtMmVqcHVrdGNiczJnMHVwZ29AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=YWRxaG9kbnF1c3RpcmpsY2hraGZoODRzYThAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=aGxsazVyNjA0bXZidGczNmpqNzFidWF2bm9AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%23c60000&amp;color=%234285F4&amp;color=%2300a3a6&amp;showTitle=0"
-            style="border-width:0;margin: 0 auto !important" width="800" height="600" frameborder="0"
+            style="border-width:0;margin: 0 auto !important" width="800" height="600" frameborder="0" id="calendarView"
             scrolling="no"></iframe>
         <div class="ui inverted divider"></div>
         <!--Add buttons to initiate auth sequence and sign out-->
         <button id="authorize_button" style="display: none;">Authorize</button>
         <button id="signout_button" style="display: none;">Sign Out</button>
-        <pre id="content" style="white-space: pre-wrap;"></pre>
     </div>
 
     <div class="ui container hidden" id="activities">
         <a class="btn btn-light" href="/addevent"><button>New Activity</button></a>
         <div id="activity-list" class="activity-container"></div>
 
+    </div>
+
+    <div class="ui container hidden" id="activityGrid">
+        <div class="ui vertically divided grid" id="activityContent">
+            <table class="ui celled table" id="activityTable">
+                <thead>
+                    <tr>
+                        <th id="label1">Activity</th>
+                        <th id="label2">Description</th>
+                        <th id="label3">Type</th>
+                        <th id="label4"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Activity"></td>
+                        <td data-label="Date"></td>
+                        <td data-label="Description"></td>
+                        <td data-label="Type"></td>
+                        <td data-label="Button"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-2">
+            <a class="btn btn-light" href="/addevent">New Activity</a>
+        </div>
+        <div class="activity-container"></div>
     </div>
 
 </body>
