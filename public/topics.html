@@ -21,7 +21,7 @@
 
         #client_id {
             font-size: 1.5em;
-            color: black;
+            color: white;
             text-shadow: 0px 1px 1px rgb(187, 170, 199);
             display: block !important;
             margin: 0 auto !important;
@@ -74,8 +74,8 @@
     <div class="ui raised very padded text container segment" id="topic-container">
         <div class="ui grid">
             <div class="two wide column">
-                <button class="ui icon left floated circular blue large button">
-                    <i><img src="/assets/images/letterR.png" class="logoA active-modal"></i>
+                <button class="ui icon left floated circular blue large button active-modal" id="relaxingModal">
+                    <i><img src="/assets/images/letterR.png" class="logoA"></i>
                 </button>
             </div>
             <div class="fourteen wide column">
@@ -87,8 +87,8 @@
         <br>
         <div class="ui grid">
             <div class="two wide column">
-                <button class="ui icon left floated circular blue large button">
-                    <i><img src="assets/images/letterA.png" class="logoA active-modal"></i>
+                <button class="ui icon left floated circular blue large button active-modal" id="activeModal">
+                    <i><img src="assets/images/letterA.png" class="logoA"></i>
                 </button>
             </div>
             <div class="fourteen wide column">
@@ -100,8 +100,8 @@
         <br>
         <div class="ui grid">
             <div class="two wide column">
-                <button class="ui icon left floated circular blue large button">
-                    <i> <i><img src="assets/images/letterM.png" class="logoA active-modal"></i></i>
+                <button class="ui icon left floated circular blue large button active-modal" id="mentalModal">
+                    <i><img src="assets/images/letterM.png" class="logoA"></i>
                 </button>
             </div>
             <div class="fourteen wide column">
@@ -113,7 +113,36 @@
 
     </div>
 
-    <div class="ui modal">
+    <div class="ui modal relax">
+        <i class="close icon"></i>
+        <div class="header">
+            Relaxing Activity
+        </div>
+        <div class="image content">
+            <div class="ui medium image letter-image">
+
+            </div>
+            <div class="description">
+                <div class="ui header">Prescott Park</div>
+                <p>Enjoy a morning of looking at pretty Flowers and people watching in Portsmouth's Prescott Park on
+                    7/29/2019 Optional city walk at 1:00pm.
+                </p>
+                <p>Bus pick-up at 11:00am.</p>
+                <p>Bus drop-off at 2:30pm.</p>
+            </div>
+        </div>
+        <div class="actions">
+            <div class="ui black deny button">
+                Cancel
+            </div>
+            <div class="ui positive right labeled icon button" id="relaxingPick">
+                Sign me up!
+                <i class="checkmark icon"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="ui modal activeM">
         <i class="close icon"></i>
         <div class="header">
             Active Activity
@@ -123,17 +152,46 @@
 
             </div>
             <div class="description">
-                <div class="ui header">Swimming at the YMCA</div>
-                <p>Enjoy a morning of swimming at the YMCA. Optional water aerobics class at 10am.</p>
+                <div class="ui header">Hiking</div>
+                <p>Enjoy a morning of hiking in the beautiful and historic Vaughan Woods near the Hamilton House on
+                    07/23/2019</p>
                 <p>Bus pick-up at 9:00am.</p>
                 <p>Bus drop-off at 12:00pm.</p>
+            </div>
+
+        </div>
+        <div class="actions">
+            <div class="ui black deny button">
+                Cancel
+            </div>
+            <div class="ui positive right labeled icon button" id="activePick">
+                Sign me up!
+                <i class="checkmark icon"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="ui modal mental">
+        <i class="close icon"></i>
+        <div class="header">
+            Mental Activity
+        </div>
+        <div class="image content">
+            <div class="ui medium image letter-image">
+
+            </div>
+            <div class="description">
+                <div class="ui header">ARt Museum</div>
+                <p>A trip to Portland's 'Freaky But True' Museum at 2:30PM on 07/20/2019</p>
+                <p>Bus pick-up at 12:00pm.</p>
+                <p>Bus drop-off at approximately 3:00pm.</p>
             </div>
         </div>
         <div class="actions">
             <div class="ui black deny button">
                 Cancel
             </div>
-            <div class="ui positive right labeled icon button">
+            <div class="ui positive right labeled icon button" id="mentalPick">
                 Sign me up!
                 <i class="checkmark icon"></i>
             </div>
@@ -144,20 +202,28 @@
 <script src="./js/modal.js"></script>
 <script>
     $(document).ready(function () {
+        function relaxingModal() {
 
-        $('.relax-modal').click(function () {
+        }
+        function activeModal() {
+
+        }
+        function mentalModal() {
+
+        }
+        $('#relaxingModal').click(function () {
             $('.letter-image').html("<img src='/assets/images/letterR.png'>");
-            $('.ui.modal')
+            $('.relax')
                 .modal('show');
         });
-        $('.active-modal').click(function () {
+        $('#activeModal').click(function () {
             $('.letter-image').html("<img src='/assets/images/letterA.png'>");
-            $('.ui.modal')
+            $('.activeM')
                 .modal('show');
         });
-        $('.mental-modal').click(function () {
+        $('#mentalModal').click(function () {
             $('.letter-image').html("<img src='/assets/images/letterM.png'>");
-            $('.ui.modal')
+            $('.mental')
                 .modal('show');
         });
     });
