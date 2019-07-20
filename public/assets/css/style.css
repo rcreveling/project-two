@@ -1,5 +1,5 @@
 body {
-    background-color: rgba(210, 213, 252, 0.795) !important;
+    background-color: linear-gradient(transparent 0%, rgba(33, 3, 34, 0.8) 40%) !important;
 }
 
 body>.grid {
@@ -8,13 +8,19 @@ body>.grid {
 }
 
 .image {
-   
     border-radius: 15px;
     border: solid 1px black;
+    padding: 1vw;
 }
-
+.header.item {
+    letter-spacing: 2px;
+    width: 15vw;
+    text-align: center !important;
+}
 .ui.fixed.inverted.menu {
+    
     background-color: rgba(48, 42, 68, 0.8);
+    height: 8vh !important;
 }
 
 .ui.left.demo.vertical.inverted.sidebar.labeled.icon.menu {
@@ -22,17 +28,46 @@ body>.grid {
 }
 
 #calendar {
+    margin-top: 0 !important;
+    margin-bottom: -8vh !important;
     align-content: center;
+    
+}
+#brand {
+    z-index: 100 !important;
+    padding-top: 5vh;
+    margin-bottom: -10vh !important;
 }
 
+#userIcon {
+    font-size: 2.3em;
+    width: 15vw !important;
+    position: fixed;
+    right: -8vw !important;
+}
+
+#userIconCont {
+    width: 15vw !important;
+}
 #logo {
     height: 5vh;
     width: auto;
-    box-shadow: 1px 1px 1px black;
-    margin-right: 2px;
-    background-color: white;
-    border: 3px solid transparent;
+    padding: .5vh;
+    margin-right: 2vh; 
+    box-sizing: content-box;
+    border-radius: 100%;
+    box-shadow: 0 0 3px 4px;
+    background: radial-gradient(white 0%, rgba(139, 88, 173, 0.685) 45%, transparent 80%);
+}
 
+#loginLogo {
+    height: 5vh;
+    width: auto;
+    padding: .5vh;
+    box-sizing: content-box;
+    border-radius: 100%;
+    box-shadow: 0 0 3px 4px;
+    background: radial-gradient(white 0%, rgba(139, 88, 173, 0.685) 45%, transparent 80%);
 }
 
 #mainPage {

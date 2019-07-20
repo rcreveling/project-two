@@ -18,6 +18,19 @@
             height: 40px;
             width: auto
         }
+
+        #client_id {
+            font-size: 1.5em;
+            color: black;
+            text-shadow: 0px 1px 1px rgb(187, 170, 199);
+            display: block !important;
+            margin: 0 auto !important;
+            background-color: rgba(36, 15, 49, 0.685);
+        }
+
+        #topic-container {
+            box-shadow: inset 0px 0px 3px 1px rgb(61, 14, 73);
+        }
     </style>
 </head>
 
@@ -29,14 +42,17 @@
                 <img class="logo image" src="assets/images/logo2.png" id="logo">
                 Local Motion
             </a>
-            <a href="index.html" class="item">Home</a>
+            <a href="home.html" class="item">Home</a>
+        </div>
+        <div class="ui container" id="userIconCont">
+            <a class="header item" id="userIcon" href="login.html"><i class="user icon"></i></a>
         </div>
     </div>
     <!--/NAVBAR-->
 
     <!--SIDEBAR-->
     <div class="ui left demo vertical inverted sidebar labeled icon menu">
-        <a class="item" href="index.html">
+        <a class="item" href="home.html">
             <i class="home icon"></i>
             Home
         </a>
@@ -52,9 +68,10 @@
     <!--/SIDEBAR-->
     <br>
     <br>
-    <h1 class="ui orange center aligned header">Local Motion TM</h1>
+    <h1 class="ui orange center aligned header" id="head">Local Motion TM</h1>
+    <div id="client_id" class="ui label" style="text-align: center !important">XYZ Community Center</div>
 
-    <div class="ui raised very padded text container segment">
+    <div class="ui raised very padded text container segment" id="topic-container">
         <div class="ui grid">
             <div class="two wide column">
                 <button class="ui icon left floated circular blue large button">
@@ -124,6 +141,7 @@
     </div>
 
 </body>
+<script src="./js/modal.js"></script>
 <script>
     $(document).ready(function () {
 

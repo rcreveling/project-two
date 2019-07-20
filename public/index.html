@@ -13,56 +13,65 @@
             $('.ui.labeled.icon.sidebar').sidebar('toggle');
         }
     </script>
+    <style>
+        body {}
 
+        #welcomeCont {
+            height: 85vh !important;
+            width: 100vw !important;
+            display: flex;
+            vertical-align: middle;
+            align-items: center;
+            align-content: center;
+        }
+
+        #go {
+            padding-top: 6vh;
+            font-size: 10em
+        }
+
+        body {
+            max-height: 100vh !important;
+            background: linear-gradient(transparent, rgba(33, 3, 34, 0.8));
+            overflow-y: none;
+        }
+
+        #logoWelcome {
+            min-height: 20vh !important;
+            min-width: 23vh !important;
+            max-height: 40vh;
+            padding: 10vh;
+            box-sizing: content-box;
+            border-radius: 100%;
+            box-shadow: 0 0 3px 4px;
+            background: radial-gradient(white 0%, rgba(139, 88, 173, 0.685) 45%, transparent 80%);
+
+        }
+
+        #title {
+            margin: 0 auto !important;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: rgba(60, 20, 61, 0.8);
+            text-shadow: 0px 0px 2px white;
+        }
+    </style>
 </head>
 
 <body>
-    <!--NAVBAR-->
-    <div class="ui fixed inverted menu">
-        <div class="ui container">
-            <a href="#" onclick=toggle(); class="header item">
-                <img class="logo image" src="assets/images/logo2.png" id="logo">
-                Local Motion
-            </a>
-            <a href="index.html" class="item">Home</a>
-        </div>
+
+    <div class="ui grid" id="welcomeCont">
+        <h1 class="ui inverted header" id="title">
+            Local Motion &nbsp;
+            <img src="assets/images/logo2.png" id="logoWelcome">
+
+        </h1>
     </div>
-    <!--/NAVBAR-->
-
-    <!--SIDEBAR-->
-    <div class="ui left demo vertical inverted sidebar labeled icon menu">
-        <a class="item" href="index.html">
-            <i class="home icon"></i>
-            Home
-        </a>
-        <a class="item" href="topics.html">
-            <i class=" block layout icon"></i>
-            Topics
-        </a>
-        <a class="item" href="admin.html">
-            <i class="smile icon"></i>
-            Admin
-        </a>
+    <div href="login.html" class="ui bottom attached button">
+        <a href="login.html"><i id="go" class="purple arrow alternate circle right icon"></i></a>
     </div>
-    <!--/SIDEBAR-->
-    <br>
-    <br>
-    <br>
-    <br>
-    <div>
-        <div class="ui raised very padded text container segment">
 
-            <div class="ui grid">
-                <div class="fourteen wide column">
-                    <button class="massive blue ui button">
-                        <a href="login.html" style="color:black;margin: 0 auto !important;">LOGIN</a>
-                    </button>
-                </div>
-            </div>
 
-        </div>
 
-    </div>
 
 </body>
 
