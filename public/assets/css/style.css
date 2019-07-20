@@ -28,9 +28,26 @@ body>.grid {
 }
 
 #calendar {
+    margin-top: 0 !important;
+    margin-bottom: -8vh !important;
     align-content: center;
 }
+#brand {
+    z-index: 100 !important;
+    padding-top: 5vh;
+    margin-bottom: -10vh !important;
+}
 
+#userIcon {
+    font-size: 2.3em;
+    width: 15vw !important;
+    position: fixed;
+    right: -8vw !important;
+}
+
+#userIconCont {
+    width: 15vw !important;
+}
 #logo {
     height: 5vh;
     width: auto;
