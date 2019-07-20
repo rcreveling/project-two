@@ -243,6 +243,16 @@
         .hidden {
             display: none !important;
         }
+
+        #calendar {
+            display: flex;
+            flex-direction: column !important;
+            margin: -8vh auto !important;
+            width: fit-content !important;
+            padding-top: .5vh !important;
+            height: fit-content !important;
+            background-color: rgba(70, 14, 57, 0.8);
+        }
     </style>
 </head>
 
@@ -328,11 +338,13 @@
     </div>
 
     <div class="ui container hidden" id="calendar">
+        <div class="ui inverted divider"></div>
 
         <iframe
             src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=America%2FNew_York&amp;src=NjhudGs0MnVtMmVqcHVrdGNiczJnMHVwZ29AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=YWRxaG9kbnF1c3RpcmpsY2hraGZoODRzYThAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=aGxsazVyNjA0bXZidGczNmpqNzFidWF2bm9AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%23c60000&amp;color=%234285F4&amp;color=%2300a3a6&amp;showTitle=0"
             style="border-width:0;margin: 0 auto !important" width="800" height="600" frameborder="0"
             scrolling="no"></iframe>
+        <div class="ui inverted divider"></div>
         <!--Add buttons to initiate auth sequence and sign out-->
         <button id="authorize_button" style="display: none;">Authorize</button>
         <button id="signout_button" style="display: none;">Sign Out</button>
