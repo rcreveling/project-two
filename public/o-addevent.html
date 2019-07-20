@@ -13,8 +13,7 @@
         }
     </script>
     <script
-        src="https://cdn.rawgit.com/mdehoog/Semantic-UI-Calendar/76959c6f7d33a527b49be76789e984a0a407350b/dist/calendar.min.js">
-    </script>
+        src="https://cdn.rawgit.com/mdehoog/Semantic-UI-Calendar/76959c6f7d33a527b49be76789e984a0a407350b/dist/calendar.min.js"></script>
     <script type="text/javascript" src="/semantic/dist/components/calendar.min.js"></script>
     <script src="js/addevent.js"></script>
     <script src="https://apis.google.com/js/api.js"></script>
@@ -30,56 +29,25 @@
                     scope: "https://www.googleapis.com/auth/calendar https://www.googleapis.com/auth/calendar.events"
                 })
                 .then(function () {
-                        console.log("Sign-in successful");
-                    },
+                    console.log("Sign-in successful");
+                },
                     function (err) {
                         console.error("Error signing in", err);
                     });
         }
-
         function loadClient() {
             gapi.client.setApiKey("AIzaSyC29ZhKQIq_NxNpGz_2mmm8NT67S6uS7bw");
             return gapi.client.load("https://content.googleapis.com/discovery/v1/apis/calendar/v3/rest")
                 .then(function () {
-                        console.log("GAPI client loaded for API");
-                    },
+                    console.log("GAPI client loaded for API");
+                },
                     function (err) {
                         console.error("Error loading GAPI client for API", err);
                     });
         }
-        var convertedDate = "";
-        $(document).ready(function () {
-            // $("#date").calendar({
-            //     type: 'date'
-            // });
-           
-            $("#date").calendar({
-                type: 'date',
-                onChange: function (date) {
-                    var year = date.getFullYear();
-                    var month = date.getMonth() + 1;
-                    var day = date.getDate();
-                    if (month < 10) {
-                        month = '0' + month;
-                    }
-                    if (day < 10) {
-                        day = '0' + day;
-                    }
-
-                    // everything combined
-                    console.log(year + '-' + month + '-' + day);
-                    convertedDate = year + '-' + month + '-' + day;
-                }
-            });
-        });
-
-
         // Make sure the client is loaded and sign-in is complete before calling this method.
         function execute() {
             var calendarId = "";
-            var title = $('#event_name').val();
-            var description = $('#description').val();
-            var location = $('#event_location').val();
             console.log(document.getElementById("category").value)
             switch (document.getElementById("category").value) {
                 case "relax":
@@ -93,27 +61,27 @@
                     break;
             }
             return gapi.client.calendar.events.insert({
-                    "calendarId": calendarId,
-                    "sendUpdates": "all",
-                    "resource": {
-                        "end": {
-                            "date": convertedDate
-                        },
-                        "start": {
-                            "date": convertedDate
-                        },
-                        "description": description,
-                        "summary": title,
-                        "attendees": [{
-                            "email": "bethany.grogg5@gmail.com"
-                        }],
-                        "location": location
-                    }
-                })
-                .then(function (response) {
-                        // Handle the results here (response.result has the parsed body).
-                        console.log("Response", response);
+                "calendarId": calendarId,
+                "sendUpdates": "all",
+                "resource": {
+                    "end": {
+                        "date": document.getElementById('date')
                     },
+                    "start": {
+                        "date": document.getElementById('date')
+                    },
+                    "description": document.getElementById('event_name'),
+                    "summary": document.getElementById('description'),
+                    "attendees": [{
+                        "email": "bethany.grogg5@gmail.com"
+                    }],
+                    "location": document.getElementById('location')
+                }
+            })
+                .then(function (response) {
+                    // Handle the results here (response.result has the parsed body).
+                    console.log("Response", response);
+                },
                     function (err) {
                         console.error("Execute error", err);
                     });
@@ -125,7 +93,9 @@
         });
     </script>
     <script>
-       
+        $(document).ready(function () {
+            $("#date").calendar({ type: 'date' });
+        })
     </script>
     <style>
         #mainCont {
