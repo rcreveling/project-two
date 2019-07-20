@@ -1,8 +1,10 @@
 module.exports = function(sequelize, DataTypes) {
   var Client = sequelize.define("Client", {
-    name: DataTypes.STRING,
+    first_name: DataTypes.STRING,
+    last_name: DataTypes.STRING,
     address: DataTypes.STRING,
     phone: DataTypes.STRING,
+    email: DataTypes.STRING,
     dob: DataTypes.DATEONLY,
     isAdmin: DataTypes.BOOLEAN,
     password: DataTypes.STRING
