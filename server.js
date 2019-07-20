@@ -27,8 +27,6 @@ app.use(
   })
 );
 
-// passport related
-
 // Passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
@@ -58,4 +56,3 @@ db.sequelize.sync(syncOptions).then(function () {
 });
 
 module.exports = app;
-
