@@ -78,15 +78,11 @@ module.exports = function (app) {
                     if (err) throw err;
                     newClient.password = hash;
                     db.Client.create( newClient )
-                    .then(user => {
-                        console.log("new user: " + JSON.stringify(user));
-                        // req.flash(
-                        // 'success_msg',
-                        // 'You are now registered and can log in'
-                        // );
-                        res.redirect('/login');
-                    })
-                    .catch(err => console.log(err));
+                        .then(user => {
+                            console.log("new user: " + JSON.stringify(user));
+                            res.redirect('/login');
+                        })
+                        .catch(err => console.log(err));
                 });
                 });
             }
@@ -94,10 +90,8 @@ module.exports = function (app) {
     });
     
     app.post('/login', function(req,res,next) {
-        console.log("login called: " + JSON.stringify(req.body));
-        // call to passport for authentication
         passport.authenticate('local', {
-            successRedirect: '/index',
+            successRedirect: '/home',
             failureRedirect: '/login',
             failureFlash: true
           })(req, res, next);

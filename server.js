@@ -5,25 +5,18 @@ const app = express();
 const path = require('path');
 const db = require("./models");
 const passport = require('passport');
+
 const session = require('express-session');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 
+require('./config/passport')(passport);
 
 app.use(express.static("public"));
 app.use('/semantic', express.static(path.join(__dirname, '/semantic/dist/')));
 
-app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-
-
-const routes = require('./routes/htmlRoutes');
-const apiRoutes = require('./routes/apiRoutes');
-// signup and login (logoff?) routes
-const userRoutes = require('./routes/userRoutes');
-routes(app, path);
-apiRoutes(app, path);
-userRoutes(app, path);
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // Express session used to persist session data
 app.use(
@@ -35,10 +28,19 @@ app.use(
 );
 
 // passport related
-require('./config/passport')(passport);
+
 // Passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
+
+const routes = require('./routes/htmlRoutes');
+const apiRoutes = require('./routes/apiRoutes');
+// signup and login (logoff?) routes
+const userRoutes = require('./routes/userRoutes');
+routes(app, path);
+apiRoutes(app, path);
+userRoutes(app, path);
+
 
 var PORT = process.env.PORT || 3000;
 

@@ -13,13 +13,14 @@ module.exports = function(passport) {
         }).then(user => {
             if (!user) {
                 // That phone number is not registered  <<<<< WHAT TO DO
-                return done(null, false);
+                return done(null, false, { message: 'That phone is not registered' });
             }
     
             // Match password
             bcrypt.compare(password, user.password, (err, isMatch) => {
                 if (err) throw err;
                 if (isMatch) {
+                    console.log("authenicated");
                     return done(null, user);
                 } else {
                     // password is incorrect <<<<< WHAT TO DO
@@ -35,7 +36,7 @@ module.exports = function(passport) {
     });
   
     passport.deserializeUser( function(id, done) {
-        db.User.findByPk(id, function(client) {
+        db.Client.findByPk(id).then(function(client) {
             done(null, client);
         });
     });
