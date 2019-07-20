@@ -4,8 +4,6 @@ $(document).ready(function () {
         event.preventDefault();
 
         var loginInfo = {
-            // fname: "foo",
-            // lname: "bar",
             phone: $("#phone").val().trim(),
             password: $("#password").val().trim()
         }

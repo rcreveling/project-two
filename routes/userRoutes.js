@@ -93,8 +93,8 @@ module.exports = function (app) {
             });
     });
     
-    app.post('/login', function(req,res) {
-        console.log("signup post req.body: " + JSON.stringify(req.body));
+    app.post('/login', function(req,res,next) {
+        console.log("login called: " + JSON.stringify(req.body));
         // call to passport for authentication
         passport.authenticate('local', {
             successRedirect: '/index',
@@ -102,4 +102,12 @@ module.exports = function (app) {
             failureFlash: true
           })(req, res, next);
     });
+
+    // router.post('/login', (req, res, next) => {
+    //     passport.authenticate('local', {
+    //       successRedirect: '/dashboard',
+    //       failureRedirect: '/users/login',
+    //       failureFlash: true
+    //     })(req, res, next);
+    //   });
 };

@@ -23,7 +23,8 @@ $(document).ready(function () {
         // }
 
         $.post("/signup", newUser, function () {
-            res.redirect('/login');
+            // res.redirect('/login');
+            console.log("signup complete");
         });
     });
 
