@@ -14,14 +14,16 @@ module.exports = {
     type: "relax",
     createdAt: new Date(),
     updatedAt: new Date()
-   },{
+  },{
     activity: 'Storm Watching',
     description: "We're gonna find Katrina, we're gonna bring her to justice",
+    type: "relax",
     createdAt: new Date(),
     updatedAt: new Date()
    },{
     activity: 'Bocchi Ball',
     description: 'Roll some balls, get some points',
+    type: "active",
     createdAt: new Date(),
     updatedAt: new Date()
    },{
